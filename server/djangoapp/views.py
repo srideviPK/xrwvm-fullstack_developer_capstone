@@ -89,9 +89,18 @@ def get_cars(request):
     for car_model in car_models:
         cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
     return JsonResponse({"CarModels":cars})
-
+    
 # # Update the `get_dealerships` view to render the index page with
 #Update the `get_dealerships` render list of dealerships all by default, particular state if state is passed
+def get_request(url, **kwargs):
+    try:
+        response = requests.get(url, params=kwargs)
+        response.raise_for_status()
+        return response.json()
+    except requests.RequestException as e:
+        print(f"Error fetching data from {url}: {e}")
+        return None
+        
 def get_dealerships(request, state="All"):
     if(state == "All"):
         endpoint = "/fetchDealers"

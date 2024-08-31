@@ -23,3 +23,5 @@ urlpatterns = [
     # path for add a review view
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
