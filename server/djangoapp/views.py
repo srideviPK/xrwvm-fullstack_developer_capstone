@@ -111,12 +111,12 @@ def get_dealerships(request, state="All"):
 # a list of dealerships
 # def get_dealerships(request):
 # ...
-
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
 def get_dealer_reviews(request, dealer_id):
     # if dealer id has been provided
     if(dealer_id):
         endpoint = "/fetchReviews/dealer/"+str(dealer_id)
+        print(endpoint)
         reviews = get_request(endpoint)
         for review_detail in reviews:
             response = analyze_review_sentiments(review_detail['review'])
