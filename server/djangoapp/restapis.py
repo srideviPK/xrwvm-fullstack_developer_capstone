@@ -1,7 +1,7 @@
 # Uncomment the imports below before you add the function code
 import requests
 import os
-from .restapis import get_request, analyze_review_sentiments, post_review
+# from .restapis import get_request, analyze_review_sentiments, post_review
 from dotenv import load_dotenv
 
 load_dotenv()
